@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classroom Poll & Reaction Tracker</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 Classroom Poll & Reaction Tracker</h1>
+            <p>Get instant visual feedback from your students!</p>
+        </div>
+
+        <div class="main-content">
+            <!-- Student Interface -->
+            <div class="card">
+                <h2>🎓 Student Interface</h2>
+                
+                <div class="poll-section">
+                    <div class="poll-question" id="pollQuestion">Which topic do you find most challenging?</div>
+                    <div class="poll-options" id="pollOptions">
+                        <div class="poll-option" data-option="0">JavaScript Functions</div>
+                        <div class="poll-option" data-option="1">CSS Grid & Flexbox</div>
+                        <div class="poll-option" data-option="2">HTML Semantic Elements</div>
+                        <div class="poll-option" data-option="3">Responsive Design</div>
+                    </div>
+                    <button class="submit-btn" id="submitVote" disabled>Submit Vote</button>
+                </div>
+
+                <div class="reactions-section">
+                    <h3>How are you feeling about this lesson?</h3>
+                    <div class="reaction-buttons">
+                        <button class="reaction-btn" data-reaction="confused">😐</button>
+                        <button class="reaction-btn" data-reaction="thinking">🤔</button>
+                        <button class="reaction-btn" data-reaction="happy">😅</button>
+                        <button class="reaction-btn" data-reaction="excited">🤯</button>
+                        <button class="reaction-btn" data-reaction="love">❤️</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Teacher Dashboard -->
+            <div class="card">
+                <h2>👨‍🏫 Live Dashboard</h2>
+                
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalVotes">0</div>
+                        <div class="stat-label">Total Votes</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="totalReactions">0</div>
+                        <div class="stat-label">Reactions</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="activeStudents">0</div>
+                        <div class="stat-label">Active Students</div>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="pollChart"></canvas>
+                </div>
+
+                <div class="reaction-stats" id="reactionStats">
+                    <div class="reaction-stat">
+                        <div class="emoji">😐</div>
+                        <div class="count" id="confused-count">0</div>
+                    </div>
+                    <div class="reaction-stat">
+                        <div class="emoji">🤔</div>
+                        <div class="count" id="thinking-count">0</div>
+                    </div>
+                    <div class="reaction-stat">
+                        <div class="emoji">😅</div>
+                        <div class="count" id="happy-count">0</div>
+                    </div>
+                    <div class="reaction-stat">
+                        <div class="emoji">🤯</div>
+                        <div class="count" id="excited-count">0</div>
+                    </div>
+                    <div class="reaction-stat">
+                        <div class="emoji">❤️</div>
+                        <div class="count" id="love-count">0</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Demo Controls -->
+        <div class="demo-controls">
+            <h3>🎮 Demo Simulation</h3>
+            <p>Simulate student responses for demonstration</p>
+            <button class="demo-btn" onclick="simulateVotes(5)">Simulate 5 Students</button>
+            <button class="demo-btn" onclick="simulateVotes(15)">Simulate 15 Students</button>
+            <button class="demo-btn" onclick="simulateVotes(30)">Simulate 30 Students</button>
+            <button class="demo-btn" onclick="simulateVotes(50)">Simulate 50 Students</button>
+            <button class="demo-btn" onclick="resetData()" style="background: #dc3545;">Reset All Data</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
